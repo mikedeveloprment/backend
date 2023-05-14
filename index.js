@@ -20,7 +20,7 @@ import cors from "cors";
 // тут ми просто робим підключеня
 // до бази даних як в fetch но пмшем mongoose.connect
 mongoose
-	.connect("mongodb+srv://admin:WWW@cluster0.mtojhza.mongodb.net/blog")
+	.connect(process.env.MONGODB_URI)
 	.then(() => console.log("база даних підключена"))
 	.catch((err) => console.log("помилка", err));
 
