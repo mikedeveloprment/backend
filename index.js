@@ -20,7 +20,7 @@ import cors from "cors";
 // тут ми просто робим підключеня
 // до бази даних як в fetch но пмшем mongoose.connect
 mongoose
-	.connect(process.env.MONGODB_URL)
+	.connect("mongodb+srv://admin:WWW@cluster0.mtojhza.mongodb.net/blog")
 	.then(() => console.log("база даних підключена"))
 	.catch((err) => console.log("помилка", err));
 
@@ -44,7 +44,7 @@ const upload = multer({
 //
 
 app.use(cors());
-// якщо коротко за допомоги use ми використовуєм express.json
+// якщо коротко за допомоги use ми використовуєм express.json eweqeq2eq2
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
