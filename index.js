@@ -22,7 +22,7 @@ import cors from "cors";
 
 
 await mongoose
-	.connect(process.env.MONGODB_URI)
+	.connect(process.env.MONGODB_URL)
 	.then(() => console.log("база даних підключена"))
 	.catch((err) => console.log("помилка", err));
 
