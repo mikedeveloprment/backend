@@ -20,7 +20,6 @@ import cors from "cors";
 // тут ми просто робим підключеня
 // до бази даних як в fetch но пмшем mongoose.connect
 
-const { LOCAL_ADDRESS = "0.0.0.0" } = process.env;
 
 await mongoose
 	.connect(process.env.MONGODB_URI)
@@ -31,7 +30,7 @@ await mongoose
 const app = express();
 //
 
-// хранилище фоток
+// хранилище фоток vdsvsdv
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, "uploads");
@@ -93,49 +92,9 @@ app.patch(
 
 // app.listen встановлює порт і робить вказану функцію при запусці
 /* ошибка якшо є така */
-app.listen(process.env.PORT || 1000, LOCAL_ADDRESS, (err) => {
+app.listen(process.env.PORT || 1000, (err) => {
 	if (err) {
 		return console.log(err);
 	}
 	console.log("порграма запущена");
 });
-
-// ПРИКЛАДИ
-
-/*
-res - связано з ответом там є методи інше
-req те шо рийшоло разом із запросом 
-*/
-// app.get("/", (req, res) => {
-// 	res.send(`${Math.random()}`);
-// 	console.log("jbkj");
-/*
-   при заході на сайт с таким маршрутом дуже
-   виконуватися get запрос і ми будем надсилати
-  за допомогою "res.send" текст шо все ок     
-  */
-// });
-
-// res.json відправляє просто сообщ в форматі json
-// app.post("/login", (req, res) => {
-
-/*
-це просто строка в якій дешо зашифровано за допомоги jwt
-тобто токен який ми створли с помощю jwt.sign()
-перший параметир дані які шифруєм другий просто ключ який ми самі придумєм він знадобиться
-*/
-// const token = jwt.sign(
-// 	{
-// 		email: req.body.email,
-// 		Name: "gg",
-// 	},
-// 	"kybik"
-// );
-
-// 	console.log(req.body, `\v\v\v${token} `);
-
-// 	res.json({
-// 		sucsess: true,
-// 		token,
-// 	});
-// });
