@@ -20,7 +20,7 @@ import cors from "cors";
 // тут ми просто робим підключеня
 // до бази даних як в fetch но пмшем mongoose.connect
 mongoose
-	.connect("mongodb+srv://admin:WWW@cluster0.mtojhza.mongodb.net/blog")
+	.connect(process.env.MONGODB_URL)
 	.then(() => console.log("база даних підключена"))
 	.catch((err) => console.log("помилка", err));
 
@@ -95,7 +95,7 @@ app.patch(
 
 // app.listen встановлює порт і робить вказану функцію при запусці
 /* ошибка якшо є така */
-app.listen(1000, (err) => {
+app.listen(process.env.PORT ||  1000, (err) => {
 	if (err) {
 		return console.log(err);
 	}
