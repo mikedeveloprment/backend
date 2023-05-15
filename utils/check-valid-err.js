@@ -7,7 +7,7 @@ export default (req, res, next) => {
 		// а далі просто провірим на наличие помилок і виведем відповідну res
 		const err = validationResult(req);
 		if (!err.isEmpty()) {
-			return res.status(404).json(err.array());
+			return res.json(err.array());
 		}
     next()
 }
