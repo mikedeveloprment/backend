@@ -27,22 +27,19 @@ export const signValid = [
 export const postCreateValid = [
 	body("title", "можлиово заголовок закороткий")
 		.isString()
-		.isLength({ min: 5 }),
+		.isLength({ min: 4 }),
 	body("text", "статья обовязково повина бути строчкою і довше 10 символів")
 		.isString()
-		.isLength({ min: 20 }),
-	body("tags", "теги записані в неправильному ворматі").optional().isString(),
+		.isLength({ min: 5 }),
 ];
 
 export const postUpdateValid = [
 	body("title", "можлиово заголовок закороткий")
 		.optional()
 		.isString()
-		.isLength({ min: 5 }),
+		.isLength({ min: 4 }),
 	body("text", "статья обовязково повина бути строчкою і довше 10 символів")
 		.optional()
 		.isString()
-		.isLength({ min: 20 }),
-	body("tags", "теги записані в неправильному ворматі").optional().isArray(),
-
+		.isLength({ min: 5 }),
 ];
