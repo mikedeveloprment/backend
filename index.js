@@ -20,7 +20,6 @@ import cors from "cors";
 // тут ми просто робим підключеня
 // до бази даних як в fetch но пмшем mongoose.connect
 
-
 await mongoose
 	.connect(process.env.MONGODB_URL)
 	.then(() => console.log("база даних підключена"))
@@ -33,9 +32,9 @@ const app = express();
 // хранилище фоток vdsvsdv
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		if (!fs.existsSync('uploads')) {
-      fs.mkdirSync('uploads');
-    }
+		if (!fs.existsSync("uploads")) {
+			fs.mkdirSync("uploads");
+		}
 		cb(null, "uploads");
 	},
 	filename: (req, file, cb) => {
