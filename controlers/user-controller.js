@@ -59,7 +59,7 @@ export const sign = async (req, res) => {
 
 		// просто провірка чи найшовся юзер
 		if (!user) {
-			return res.status(404).json({
+			return res.status(400).json({
 				message: "Користувач не найден",
 			});
 		}
@@ -73,7 +73,7 @@ export const sign = async (req, res) => {
 
 		// знов провірка на правильність пароля
 		if (!truePassword) {
-			return res.status(404).json({
+			return res.status(400).json({
 				message: "Пароль або Почта не валідна",
 			});
 		}
@@ -100,8 +100,7 @@ export const sign = async (req, res) => {
 
 		// відлав. помилок
 	} catch (error) {
-		console.log(error);
-		res.json({
+		res.status(400).json({
 			message: "не удалось войти",
 		});
 	}
